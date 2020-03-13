@@ -1,53 +1,21 @@
 
 ## Avatar
 
-```
+```tsx | jsx
   import React from 'react';
-  import { Button, Modal } from 'antd';
+    
+  import { Button } from 'antd';
 
-  class App extends React.Component {
-    state = { visible: false };
+  type MsgType = string;
 
-    showModal = () => {
-      this.setState({
-        visible: true,
-      });
-    };
-
-    handleOk = e => {
-      console.log(e);
-      this.setState({
-        visible: false,
-      });
-    };
-
-    handleCancel = e => {
-      console.log(e);
-      this.setState({
-        visible: false,
-      });
-    };
-
-    render() {
-      return (
-        <div>
-          <Button type="primary" onClick={this.showModal}>
-            Open Modal
-          </Button>
-          <Modal
-            title="Basic Modal"
-            visible={this.state.visible}
-            onOk={this.handleOk}
-            onCancel={this.handleCancel}
-          >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-          </Modal>
-        </div>
-      );
-    }
+  function hello(msg: MsgType) {
+    alert(msg);
   }
 
-  export default () => <App />;
+  export default () => (
+    <Button type="primary" onClick={hello.bind(null, 'Hello!')}>
+      点击我就 Hello!
+    </Button>
+  );
+
 ```
